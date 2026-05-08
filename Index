@@ -528,8 +528,9 @@ footer em {
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p>La caverna tiene una vida cultural que vale la pena activar. <em>Matrix</em> es la versión más literal: mundo simulado, el elegido que sale, los que prefieren volver.</p>
-            <p>Marx la invierte en la "cámara oscura": las ilusiones no vienen de fuera sino que son producidas desde dentro por la estructura material. Debord y la <em>Sociedad del espectáculo</em> aplican el mismo esquema: vivimos entre representaciones de cosas, no entre cosas.</p>
+            <p><p>La caverna tiene una vida cultural que vale la pena activar. <em>Matrix</em> es la versión más literal: mundo simulado, el elegido que sale, los que prefieren volver.</p>
+<p>Pero hay también una inversión positiva del argumento: David Deutsch señala que los astrónomos modernos también trabajan con sombras —señales indirectas, luz que ha viajado millones de años— y han mapeado el universo entero con ese material. La diferencia con los prisioneros no es que salieran de la caverna: es que <em>razonaron activamente</em> sobre lo que veían. <a href="https://sites.google.com/lasallesantander.es/h-filosofia/profundizar" target="_blank">Ver: La escalera cósmica →</a></p></p>
+            <p>Marx la invierte en la "cámara oscura": las ilusiones no vienen de fuera sino que son producidas desde dentro (por lo que proviene de fuera: las imágenes) por la estructura material de la cámara oscura. Debord y la <em>Sociedad del espectáculo</em> aplican el mismo esquema: vivimos entre representaciones de cosas, no entre cosas.</p>
             <p>La pregunta de actualidad no necesita nombres propios: ¿puede un sistema de información diseñado para capturar atención reproducir el mecanismo de la caverna sin que nadie lo haya planeado así?</p>
           </div>
         </div>
@@ -544,7 +545,7 @@ footer em {
         <div class="acc-body">
           <div class="acc-body-text">
             <p>La objeción de Aristóteles no ataca las Ideas directamente sino el intelectualismo moral que de ellas se sigue. Para Platón, quien conoce el Bien actúa bien: el mal es ignorancia. Aristóteles responde que el bien no es un objeto de contemplación sino un <strong>hábito</strong>: la virtud se adquiere practicándola, no conociéndola.</p>
-            <p>La <em>akrasía</em> —debilidad de voluntad— es un hecho de la experiencia que el platonismo no puede explicar: puedes saber perfectamente que algo está mal y hacerlo igualmente. Si Aristóteles tiene razón, el puente entre conocimiento y acción que sostiene toda la política platónica se rompe.</p>
+            <p>La <em>akrasía</em> —debilidad de voluntad— es un hecho de la experiencia que el platonismo no puede explicar: puedes saber perfectamente que algo está mal y hacerlo igualmente. Si Aristóteles tiene razón, el puente entre conocimiento y acción que sostiene toda la política platónica se tambalea.</p>
             <p>La tensión tiene una versión contemporánea incómoda: la idea de que deben gobernar los que saben choca hoy contra el rechazo deliberado al conocimiento como señal de identidad política. Platón no tiene respuesta para eso porque su sistema asume que nadie rechaza el Bien voluntariamente.</p>
           </div>
         </div>
@@ -587,7 +588,7 @@ footer em {
         <div class="acc-body">
           <div class="acc-body-text">
             <p>Las Cinco Vías no son arqueología. El argumento cosmológico —tiene que haber una causa primera no causada— sigue siendo debatido en filosofía analítica contemporánea.</p>
-            <p>Pero más interesante para el examen es el reverso: Sartre construye su existencialismo dándole la vuelta a la escolástica que Aquino representa. Para Aquino, Dios es el único ser en que esencia y existencia coinciden: sabe lo que es antes de existir. Sartre responde que en el hombre ocurre lo contrario: existe primero, y solo después construye su esencia. No hay naturaleza humana dada de antemano.</p>
+            <p>Pero más interesante para el examen es el reverso: Sartre construye su existencialismo dándole la vuelta a la escolástica que Aquino representa. Para Aquino, Dios es el único ser en que esencia y existencia coinciden plenamente. Sartre invierte esa lógica aplicada al ser humano: existe primero, y solo después construye su esencia. No hay naturaleza humana dada de antemano.</p>
             <p>La frase más famosa del existencialismo —<em>"la existencia precede a la esencia"</em>— es una respuesta directa a Aquino.</p>
           </div>
         </div>
@@ -760,9 +761,7 @@ footer em {
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p>La resonancia más masiva del marxismo en el s. XX no es teórica sino política: regímenes que se declararon marxistas transformaron la cara del mundo con resultados que los marxistas contemporáneos casi unánimemente rechazan como traición al proyecto original.</p>
-            <p>El debate interno es él solo un espejo del esquema marxiano: los que hoy se declaran marxistas acusan a los marxismos del siglo pasado de haber construido una superestructura ideológica —el partido, el Estado obrero— que olvidó la base material y se convirtió en nueva forma de dominación. La crítica reproduce exactamente el movimiento de Marx contra Feuerbach: <em>vosotros cambiáis las ideas, nosotros cambiamos las condiciones.</em></p>
-            <p>Hay también una herencia más difusa: cualquier análisis que divide la realidad social en dominantes y dominados, que busca qué intereses materiales hay detrás de cada discurso, debe algo al marxismo aunque no lo reconozca. Cuando esa división se multiplica por varios ejes a la vez sin anclaje en la base material, Marx habría reconocido la estructura pero probablemente lo habría llamado idealismo.</p>
+            <p>Marx sigue vivo cada vez que se sospecha que detrás de una idea aparentemente neutral hay un interés material. La operación marxiana consiste en cambiar la pregunta. No basta preguntar si una teoría es verdadera; hay que preguntar también qué estructura social la produce y a quién beneficia. La noción de ideología nace exactamente ahí: las ideas no flotan por encima de la sociedad sino que expresan relaciones de poder, aunque quienes las defienden no sean conscientes de ello. Incluso autores que rechazan el marxismo siguen utilizando herramientas claramente marxianas cuando interpretan la cultura, el derecho o la política como efectos de conflictos estructurales más profundos.</p>
           </div>
         </div>
       </div>
@@ -770,13 +769,13 @@ footer em {
       <div class="acc-card adversario" onclick="toggleAcc(this)">
         <div class="acc-card-header">
           <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
-          <div class="acc-card-title">Popper: el marxismo no puede equivocarse. Weber: la causalidad está invertida</div>
+          <div class="acc-card-title">Popper: el marxismo es infalsable. Weber: la causalidad está invertida</div>
           <span class="acc-toggle">+</span>
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p><strong>Popper</strong> argumenta que el marxismo es una teoría infalsificable: cualquier cosa que ocurra puede ser interpretada como confirmación. Si la revolución llega, el marxismo tenía razón. Si no llega, la conciencia de clase no ha madurado, o la burguesía ha sido muy hábil. Una teoría que puede explicarlo todo no explica nada con precisión.</p>
-            <p><strong>Weber</strong> ataca por otro flanco: el capitalismo no nació de las condiciones materiales sino de la ética protestante. Es la superestructura —la religión— la que genera la infraestructura —el capitalismo—. Si Weber tiene razón en este caso histórico central, la causalidad marxista está al menos parcialmente invertida.</p>
+            <p><strong>Popper</strong> acusa al marxismo de haber dejado de comportarse como una ciencia para convertirse en un sistema capaz de absorber cualquier objeción. Si la revolución llega, el marxismo acierta. Si no llega, se explica diciendo que las condiciones aún no han madurado o que la ideología dominante ha retrasado el proceso. El problema es serio: una teoría que puede reinterpretar cualquier resultado como confirmación corre el riesgo de no poder equivocarse nunca.</p>
+            <p><strong>Weber</strong> añade otra objeción incómoda. Marx explica las ideas desde las condiciones materiales; Weber muestra un caso histórico decisivo —el capitalismo moderno— donde parecen ser ciertas ideas religiosas las que transforman la estructura económica. Si eso ocurre, la relación entre infraestructura y superestructura es menos unilateral de lo que Marx suponía.</p>
           </div>
         </div>
       </div>
@@ -789,7 +788,7 @@ footer em {
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p>Marx asume que la historia avanza hacia la sociedad sin clases con la misma necesidad con que el agua baja hacia el mar. Eso es un supuesto metafísico enorme — exactamente el tipo de filosofía de la historia que Marx dice superar al darle la vuelta a Hegel.</p>
+            <p>Marx asume que las contradicciones internas del capitalismo orientan necesariamente la historia hacia un desenlace final. Eso es un supuesto metafísico enorme — exactamente el tipo de filosofía de la historia que Marx dice superar al darle la vuelta a Hegel.</p>
             <p>Si la historia no tiene dirección garantizada, la revolución no es inevitable: es una apuesta política entre otras. Y si es una apuesta, el marxismo ya no es una ciencia de la sociedad sino un proyecto con una narrativa de fondo que hay que aceptar o rechazar como tal. Lo que se presenta como análisis objetivo tiene, en su núcleo, una fe en el desenlace.</p>
           </div>
         </div>
@@ -816,9 +815,7 @@ footer em {
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p>El totalitarismo destruye la acción por represión directa: elimina el espacio público, aísla, atomiza. Pero hay una pregunta más incómoda: ¿puede una democracia producir el mismo efecto por otros medios?</p>
-            <p>No por prohibir sino por <strong>saturar</strong>: cuando hay tantas voces que ninguna cuenta, cuando la acción política se convierte en gesto simbólico sin consecuencias, cuando participar y no participar producen el mismo resultado. La categoría arendtiana de superfluidad apunta en esa dirección: lo más destructivo no es el enemigo declarado sino la condición en que la acción deja de tener sentido porque ya no produce nada irreversible.</p>
-            <p>El mal banal tiene también una vida cultural activa fuera del contexto nazi: <em>El lector</em>, <em>La zona de interés</em> — ambas exploran la misma pregunta: ¿cómo participa gente ordinaria en el horror sin odio, sin convicción, casi sin darse cuenta?</p>
+            <p>Arendt obliga a pensar un problema incómodo: la desaparición de la acción política no requiere necesariamente terror o censura. Una sociedad puede conservar elecciones, debate y participación visible y, aun así, vaciar el espacio público de eficacia real. La acción se degrada entonces en opinión, gesto o reacción momentánea sin capacidad de introducir nada duradero en el mundo común. Por eso el problema político fundamental para Arendt no es solo quién gobierna, sino si sigue existiendo un espacio donde las personas puedan aparecer, actuar y hacerse responsables de lo que hacen. Su pregunta sigue abierta: ¿qué ocurre cuando una sociedad conserva la forma de la política pero pierde la experiencia de la acción?</p>
           </div>
         </div>
       </div>
@@ -831,9 +828,7 @@ footer em {
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p>Arendt construye su concepto de acción política sobre el modelo griego: la <em>polis</em> como espacio donde los iguales aparecen y actúan juntos. El problema es que la <em>polis</em> griega excluía a las mujeres, los esclavos y los extranjeros.</p>
-            <p>Si el espacio público históricamente ha sido el espacio de algunos, y Arendt no tematiza esa exclusión con suficiente profundidad, su teoría describe bien lo que pasa dentro del espacio pero no dice nada sobre quién ha podido entrar y quién ha sido dejado fuera.</p>
-            <p>La crítica no anula su pensamiento pero lo obliga a completarse: una teoría de la acción política que no incluye una teoría del acceso al espacio político está incompleta.</p>
+            <p>Arendt construye su concepto de acción política sobre el modelo griego: la <em>polis</em> como espacio donde los iguales aparecen y actúan juntos. Entiende la política como aparición pública entre iguales. Pero eso abre una dificultad importante: ¿quién decide quién puede aparecer como igual? Su modelo político depende de una comunidad previa suficientemente cohesionada como para compartir un mundo común. El problema es que toda comunidad política define también fronteras de pertenencia y exclusión. La tensión es profunda: cuanto más fuerte es el espacio común, más probable es que deje fuera a quienes no encajan plenamente en él.</p>
           </div>
         </div>
       </div>
@@ -846,9 +841,7 @@ footer em {
         </div>
         <div class="acc-body">
           <div class="acc-body-text">
-            <p>Arendt concluye, especialmente en su obra tardía, que pensar —el diálogo interior, el juicio, la capacidad de ponerse en el lugar del otro— es la condición de posibilidad de la resistencia moral. Quien piensa no puede ejecutar el mal con la tranquilidad de Eichmann.</p>
-            <p>Es una conclusión que probablemente es verdadera en muchos casos. Pero tiene un límite: la historia registra casos de personas que pensaban con precisión y sofisticación y participaron en el horror con plena conciencia. El mal ilustrado existe.</p>
-            <p>Si pensar no garantiza la resistencia, la apuesta de Arendt es una apuesta —importante, orientadora, quizás necesaria— pero no una solución. Y esa diferencia importa.</p>
+            <p>Arendt confía en que el pensamiento —la capacidad de examinar lo que uno hace y mantener un diálogo interior consigo mismo— dificulta la obediencia ciega. Pero eso abre una pregunta incómoda: ¿pensar basta realmente para resistir? La historia muestra casos de individuos cultos, inteligentes y perfectamente conscientes que participaron activamente en sistemas criminales sin suspender por ello su capacidad de reflexión. Si el pensamiento no conduce necesariamente al juicio moral, entonces la relación entre inteligencia y resistencia es más frágil de lo que Arendt esperaba.</p>
           </div>
         </div>
       </div>
