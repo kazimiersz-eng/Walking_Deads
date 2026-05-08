@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segunda Línea — PAU Filosofía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Libre+Franklin:wght@300;400;500;600&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f2ede6;
+  --bg-alt: #ebe4db;
+  --ink: #1a1714;
+  --ink-muted: #6b625a;
+  --rule: #cec7bc;
+  --rule-light: #e0d9d0;
+  --red: #9b2a1a;
+  --red-soft: #f5e8e5;
+  --gold: #7a5c1e;
+  --gold-soft: #f5edda;
+  --teal: #1a4a44;
+  --teal-soft: #d8eceb;
+  --sidebar: 240px;
+  --radius: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar);
+  background: var(--ink);
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.sidebar-top {
+  padding: 32px 24px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.sidebar-eyebrow {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 8px;
+}
+
+.sidebar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #f2ede6;
+  line-height: 1.25;
+}
+
+.sidebar-title em {
+  font-style: italic;
+  color: #c4896b;
+}
+
+.sidebar-warning {
+  margin: 16px 16px 0;
+  padding: 12px 14px;
+  background: rgba(155, 42, 26, 0.15);
+  border: 1px solid rgba(155, 42, 26, 0.3);
+  border-radius: var(--radius);
+  font-size: 11px;
+  color: #e8a090;
+  line-height: 1.55;
+  font-family: 'Inconsolata', monospace;
+}
+
+.sidebar-warning strong {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+  color: #d4604a;
+}
+
+.sidebar-nav {
+  padding: 20px 0 24px;
+  flex: 1;
+}
+
+.nav-section-label {
+  padding: 0 20px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+
+.nav-author {
+  display: block;
+  padding: 9px 20px 9px 22px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  background: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.nav-author:hover {
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.04);
+  border-left-color: rgba(255,255,255,0.2);
+  padding-left: 26px;
+}
+
+.nav-author.active {
+  color: #f2ede6;
+  border-left-color: #c4896b;
+  background: rgba(196, 137, 107, 0.08);
+}
+
+/* ── MAIN ── */
+.main {
+  margin-left: var(--sidebar);
+  flex: 1;
+  padding: 0;
+  max-width: 820px;
+}
+
+/* ── GATE ── */
+.gate {
+  padding: 64px 64px 56px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.gate-eyebrow {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-muted);
+  margin-bottom: 16px;
+}
+
+.gate-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.gate-title em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.gate-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-bottom: 32px;
+}
+
+.gate-warning {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--red-soft);
+  border: 1px solid #d4a090;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  max-width: 540px;
+}
+
+.gate-warning-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.gate-warning-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #5a2010;
+}
+
+.gate-warning-text strong {
+  display: block;
+  font-size: 11px;
+  font-family: 'Inconsolata', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+  color: var(--red);
+}
+
+/* ── AUTHOR SECTIONS ── */
+.author-section {
+  padding: 56px 64px 48px;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 32px;
+}
+
+.author-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.author-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.author-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.author-dates {
+  font-family: 'Inconsolata', monospace;
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-left: auto;
+}
+
+/* ── THREE COLUMNS OF CARDS ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ── ACCORDION CARD ── */
+.acc-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.acc-card-header {
+  padding: 18px 20px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.12s;
+  position: relative;
+}
+
+.acc-card-header:hover {
+  background: var(--bg-alt);
+}
+
+.acc-type-tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tag-resonancia .tag-dot { background: var(--teal); }
+.tag-adversario .tag-dot { background: var(--gold); }
+.tag-talon .tag-dot { background: var(--red); }
+
+.tag-resonancia { color: var(--teal); }
+.tag-adversario { color: var(--gold); }
+.tag-talon { color: var(--red); }
+
+.acc-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.acc-toggle {
+  position: absolute;
+  top: 18px; right: 16px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--rule-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  color: var(--ink-muted);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.acc-card.open .acc-toggle {
+  background: var(--ink);
+  color: var(--bg);
+  transform: rotate(45deg);
+}
+
+.acc-body {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--rule-light);
+}
+
+.acc-card.open .acc-body {
+  display: block;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.acc-body-text {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #3a332c;
+  padding-top: 16px;
+}
+
+.acc-body-text p { margin-bottom: 10px; }
+.acc-body-text p:last-child { margin-bottom: 0; }
+
+.acc-body-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.acc-body-text em {
+  font-style: italic;
+}
+
+.acc-body-text a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-color: rgba(26, 74, 68, 0.3);
+  font-weight: 500;
+  transition: text-decoration-color 0.15s;
+}
+
+.acc-body-text a:hover {
+  text-decoration-color: var(--teal);
+}
+
+/* color strips per type */
+.acc-card.resonancia { border-top: 3px solid var(--teal); }
+.acc-card.adversario { border-top: 3px solid var(--gold); }
+.acc-card.talon      { border-top: 3px solid var(--red); }
+
+/* ── LEGEND ── */
+.legend {
+  display: flex;
+  gap: 20px;
+  padding: 0 64px 32px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-family: 'Inconsolata', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 32px 64px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--rule);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+footer span {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-family: 'Inconsolata', monospace;
+}
+
+footer em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--red);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .cards-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  :root { --sidebar: 0px; }
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .gate, .author-section { padding: 36px 24px 32px; }
+  .legend { padding: 0 24px 24px; }
+  footer { padding: 24px; }
+  .gate-title { font-size: 38px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="sidebar-eyebrow">PAU Filosofía · Nivel avanzado</div>
+    <div class="sidebar-title">Segunda<br/><em>Línea</em></div>
+  </div>
+
+  <div class="sidebar-warning">
+    <strong>⚠ Antes de entrar</strong>
+    Solo útil si ya tienes las bisagras automatizadas y la teoría sólida. Si no es así, cierra esto y vuelve.
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Autores</div>
+    <button class="nav-author" onclick="scrollTo('platon')">Platón</button>
+    <button class="nav-author" onclick="scrollTo('aquino')">Tomás de Aquino</button>
+    <button class="nav-author" onclick="scrollTo('descartes')">Descartes</button>
+    <button class="nav-author" onclick="scrollTo('locke')">Locke</button>
+    <button class="nav-author" onclick="scrollTo('marx')">Marx</button>
+    <button class="nav-author" onclick="scrollTo('arendt')">Arendt</button>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- GATE -->
+  <div class="gate">
+    <div class="gate-eyebrow">Herramienta para alumnos aventajados</div>
+    <h1 class="gate-title">Segunda<br/><em>Línea</em></h1>
+    <p class="gate-subtitle">Tres preguntas para subir del 7 al 9</p>
+
+    <div class="gate-warning">
+      <div class="gate-warning-icon">⚠</div>
+      <div class="gate-warning-text">
+        <strong>Condición de uso</strong>
+        Este material solo es operativo si ya tienes la teoría sólida y las bisagras automatizadas. Usarlo antes es gastar tiempo en lo que brilla en vez de en lo que sostiene. Si tienes dudas sobre si estás listo: no lo estás.
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend" style="padding-top:28px;">
+    <div class="legend-item"><span class="legend-dot" style="background:var(--teal)"></span> Dónde vive hoy</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--gold)"></span> Quién no estaría de acuerdo</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--red)"></span> Qué supuesto puede fallar</div>
+  </div>
+
+  <!-- ── PLATÓN ── -->
+  <section class="author-section" id="platon">
+    <div class="author-header">
+      <span class="author-number">i.</span>
+      <h2 class="author-name">Platón</h2>
+      <span class="author-dates">428–348 a.C.</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="acc-card resonancia" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-resonancia"><span class="tag-dot"></span>Dónde vive hoy</div>
+          <div class="acc-card-title">La caverna y sus versiones</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>La caverna tiene una vida cultural que vale la pena activar. <em>Matrix</em> es la versión más literal: mundo simulado, el elegido que sale, los que prefieren volver.</p>
+            <p>Marx la invierte en la "cámara oscura": las ilusiones no vienen de fuera sino que son producidas desde dentro por la estructura material. Debord y la <em>Sociedad del espectáculo</em> aplican el mismo esquema: vivimos entre representaciones de cosas, no entre cosas.</p>
+            <p>La pregunta de actualidad no necesita nombres propios: ¿puede un sistema de información diseñado para capturar atención reproducir el mecanismo de la caverna sin que nadie lo haya planeado así?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card adversario" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
+          <div class="acc-card-title">Aristóteles: el bien no se sabe, se practica</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>La objeción de Aristóteles no ataca las Ideas directamente sino el intelectualismo moral que de ellas se sigue. Para Platón, quien conoce el Bien actúa bien: el mal es ignorancia. Aristóteles responde que el bien no es un objeto de contemplación sino un <strong>hábito</strong>: la virtud se adquiere practicándola, no conociéndola.</p>
+            <p>La <em>akrasía</em> —debilidad de voluntad— es un hecho de la experiencia que el platonismo no puede explicar: puedes saber perfectamente que algo está mal y hacerlo igualmente. Si Aristóteles tiene razón, el puente entre conocimiento y acción que sostiene toda la política platónica se rompe.</p>
+            <p>La tensión tiene una versión contemporánea incómoda: la idea de que deben gobernar los que saben choca hoy contra el rechazo deliberado al conocimiento como señal de identidad política. Platón no tiene respuesta para eso porque su sistema asume que nadie rechaza el Bien voluntariamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card talon" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-talon"><span class="tag-dot"></span>Qué supuesto puede fallar</div>
+          <div class="acc-card-title">Nadie hace el mal a sabiendas</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Es el supuesto que sostiene todo el edificio. Si conocer el Bien implica actuar bien, y actuar mal implica ignorancia, entonces la política se reduce a un problema educativo: pon a los que saben a gobernar y el resto se resuelve.</p>
+            <p>Pero Arendt, veinte siglos después, describe a Eichmann: un hombre que no ignoraba lo que hacía pero había suspendido el juicio. El mal no requiere ignorancia; a veces requiere lo contrario: competencia técnica precisa al servicio de una orden no cuestionada.</p>
+            <p>Si eso es posible, el edificio platónico tiene una grieta en los cimientos que ninguna reforma educativa puede tapar.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── AQUINO ── -->
+  <section class="author-section" id="aquino">
+    <div class="author-header">
+      <span class="author-number">ii.</span>
+      <h2 class="author-name">Tomás de Aquino</h2>
+      <span class="author-dates">1225–1274</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="acc-card resonancia" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-resonancia"><span class="tag-dot"></span>Dónde vive hoy</div>
+          <div class="acc-card-title">El argumento cosmológico sigue vivo, y su reverso también</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Las Cinco Vías no son arqueología. El argumento cosmológico —tiene que haber una causa primera no causada— sigue siendo debatido en filosofía analítica contemporánea.</p>
+            <p>Pero más interesante para el examen es el reverso: Sartre construye su existencialismo dándole la vuelta a la escolástica que Aquino representa. Para Aquino, Dios es el único ser en que esencia y existencia coinciden: sabe lo que es antes de existir. Sartre responde que en el hombre ocurre lo contrario: existe primero, y solo después construye su esencia. No hay naturaleza humana dada de antemano.</p>
+            <p>La frase más famosa del existencialismo —<em>"la existencia precede a la esencia"</em>— es una respuesta directa a Aquino.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card adversario" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
+          <div class="acc-card-title">Razón y fe: ¿complemento o contradicción?</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>El proyecto de Aquino asume que razón y fe son compatibles: la razón camina hasta donde puede y la fe recoge el testigo. Pero eso no es obvio.</p>
+            <p>Desde la tradición árabe, Averroes había argumentado que razón y revelación son dos órdenes separados que no se tocan: lo que es verdad en filosofía puede ser distinto en teología y viceversa. Si Averroes tiene razón, la síntesis de Aquino es un malentendido: no hay un camino continuo de lo sensible a Dios, hay dos territorios con sus propias reglas.</p>
+            <p>El debate no es académico: define qué puede decir la razón sobre lo religioso y hasta dónde puede llegar sin necesitar la fe.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card talon" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-talon"><span class="tag-dot"></span>Qué supuesto puede fallar</div>
+          <div class="acc-card-title">El salto de "causa primera" a "Dios personal"</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Las Cinco Vías demuestran, en el mejor caso, que tiene que haber algo que explique por qué hay algo en vez de nada: un motor inmóvil, una causa no causada, un ser necesario.</p>
+            <p>Pero de ahí a decir que ese ser es el Dios del Génesis —con atributos, voluntad y relación con el mundo— hay un salto enorme que las Vías no cubren. Hume lo formulará con precisión: incluso si aceptamos que la cadena de causas tiene que terminar en algún punto, no tenemos ninguna razón para atribuir a esa causa primera ningún atributo reconocible.</p>
+            <p>El argumento llega a un límite del universo, no a un padre.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DESCARTES ── -->
+  <section class="author-section" id="descartes">
+    <div class="author-header">
+      <span class="author-number">iii.</span>
+      <h2 class="author-name">Descartes</h2>
+      <span class="author-dates">1596–1650</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="acc-card resonancia" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-resonancia"><span class="tag-dot"></span>Dónde vive hoy</div>
+          <div class="acc-card-title">La duda radical y la arquitectura del solipsismo</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>El experimento mental del genio maligno tiene descendencia directa: los cerebros en cubeta de Putnam, la hipótesis de la simulación. La pregunta —¿cómo sé que lo que percibo corresponde a algo real?— no tiene respuesta fácil y sigue siendo el punto de partida de la epistemología contemporánea. <a href="https://sites.google.com/lasallesantander.es/h-filosofia/profundizar" target="_blank">Ver: Cerebros en una cubeta y La hipótesis del mundo vulnerable →</a></p>
+            <p>Pero hay algo más importante: la operación cartesiana es admirable en su estructura. Descartes consigue llegar a Dios <strong>sin salir del solipsismo</strong> — la existencia de Dios se demuestra solo desde el contenido de la mente, sin asomarse al mundo. Y solo después de tener a Dios como garante de la razón se acerca al mundo exterior con garantías.</p>
+            <p>Es una arquitectura de una coherencia casi inquietante. El problema es justamente ese: quien no acepte que la primera certeza es un razonamiento puro, y no algo inmediato, tendrá dificultades con todo lo que viene después.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card adversario" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
+          <div class="acc-card-title">Los empiristas y Spinoza: no hay ideas innatas, ni dos sustancias</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Locke: la mente al nacer es una tabla en blanco. Todo conocimiento viene de la experiencia. Si eso es verdad, el <em>cogito</em> no es el punto de partida que Descartes cree: es un resultado construido, no una verdad innata.</p>
+            <p>Hume va más lejos: el "yo" que piensa no es una sustancia permanente sino un flujo de percepciones. No hay <em>cogito</em> estable; hay un hábito mental de atribuir identidad a algo que cambia constantemente.</p>
+            <p>Spinoza, desde dentro del racionalismo y por tanto más incómodo, critica el dualismo: no hay dos sustancias —mente y cuerpo— sino una sola con dos atributos. La solución que Descartes propone para comunicarlas es la parte más débil de su sistema, y él mismo lo sabe.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card talon" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-talon"><span class="tag-dot"></span>Qué supuesto puede fallar</div>
+          <div class="acc-card-title">El círculo: usa la razón para demostrar a Dios y a Dios para garantizar la razón</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Es el problema que un contemporáneo, Arnauld, le señaló directamente. Descartes necesita que la razón sea fiable para demostrar la existencia de Dios. Pero la razón solo es fiable una vez que Dios, como ser veraz, la garantiza.</p>
+            <p>El argumento se sostiene a sí mismo. Si la razón ya era fiable antes de demostrar a Dios, la demostración es innecesaria. Si no lo era, no podemos fiarnos de la demostración.</p>
+            <p>Descartes intentó responder pero la mayoría de los lectores no quedaron convencidos. Es el tipo de grieta que no destruye el edificio pero lo hace habitable solo bajo ciertas condiciones de entrada.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── LOCKE ── -->
+  <section class="author-section" id="locke">
+    <div class="author-header">
+      <span class="author-number">iv.</span>
+      <h2 class="author-name">Locke</h2>
+      <span class="author-dates">1632–1704</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="acc-card resonancia" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-resonancia"><span class="tag-dot"></span>Dónde vive hoy</div>
+          <div class="acc-card-title">La arquitectura del liberalismo político moderno viene de aquí</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Locke no es historia de las ideas: es la fuente directa de instituciones que siguen funcionando. La Declaración de Independencia americana es una paráfrasis reconocible: <em>"vida, libertad y búsqueda de la felicidad"</em> traduce <em>"vida, libertad y propiedad"</em>.</p>
+            <p>La separación de poderes, el gobierno limitado, el derecho de resistencia — todo eso tiene en Locke su formulación teórica más influyente.</p>
+            <p>El debate actual entre quienes defienden que los derechos son naturales y prepolíticos y quienes dicen que son construcciones sociales sin fundamento previo es exactamente la tensión que Locke abre y que no ha cerrado nadie.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card adversario" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
+          <div class="acc-card-title">Hobbes y Rousseau: el mismo punto de partida, conclusiones opuestas</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Los tres parten del estado de naturaleza y el pacto social pero llegan a lugares incompatibles.</p>
+            <p><strong>Hobbes:</strong> el estado de naturaleza es guerra de todos contra todos; el pacto entrega el poder a un soberano que no puede ser limitado porque cualquier cosa es mejor que el caos.</p>
+            <p><strong>Locke:</strong> el estado de naturaleza es imperfecto pero no un infierno; el pacto crea un gobierno que puede y debe ser resistido si traiciona su mandato.</p>
+            <p><strong>Rousseau:</strong> el hombre natural es bueno; la corrupción viene de la sociedad y especialmente de la propiedad privada, que Locke justifica y Rousseau acusa como origen del problema. Locke y Rousseau comparten el lenguaje pero diagnostican lo contrario.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card talon" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-talon"><span class="tag-dot"></span>Qué supuesto puede fallar</div>
+          <div class="acc-card-title">La propiedad por el trabajo asume condiciones que ya no existen cuando se firma el pacto</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>El argumento: mezclo mi trabajo con algo sin dueño, luego es mío. Locke añade una condición: solo vale si queda suficiente y de igual calidad para los demás. El problema es que cuando se firma cualquier contrato social real, hay acumulación previa, hay escasez, hay gente que llega tarde. Marx usará esto para decir que el liberalismo lockiano es la ideología de los que ya han acumulado.</p>
+            <p>Hay además una objeción más de fondo: asumir que el mundo tiene recursos finitos es también una toma de posición. Lo que cuenta como recurso escaso no está dado de antemano —está construido por la tecnología, el conocimiento y las prioridades de cada época. La edad de piedra no terminó porque se acabaran las piedras.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── MARX ── -->
+  <section class="author-section" id="marx">
+    <div class="author-header">
+      <span class="author-number">v.</span>
+      <h2 class="author-name">Marx</h2>
+      <span class="author-dates">1818–1883</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="acc-card resonancia" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-resonancia"><span class="tag-dot"></span>Dónde vive hoy</div>
+          <div class="acc-card-title">El legado más visible no es el que Marx hubiera reconocido</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>La resonancia más masiva del marxismo en el s. XX no es teórica sino política: regímenes que se declararon marxistas transformaron la cara del mundo con resultados que los marxistas contemporáneos casi unánimemente rechazan como traición al proyecto original.</p>
+            <p>El debate interno es él solo un espejo del esquema marxiano: los que hoy se declaran marxistas acusan a los marxismos del siglo pasado de haber construido una superestructura ideológica —el partido, el Estado obrero— que olvidó la base material y se convirtió en nueva forma de dominación. La crítica reproduce exactamente el movimiento de Marx contra Feuerbach: <em>vosotros cambiáis las ideas, nosotros cambiamos las condiciones.</em></p>
+            <p>Hay también una herencia más difusa: cualquier análisis que divide la realidad social en dominantes y dominados, que busca qué intereses materiales hay detrás de cada discurso, debe algo al marxismo aunque no lo reconozca. Cuando esa división se multiplica por varios ejes a la vez sin anclaje en la base material, Marx habría reconocido la estructura pero probablemente lo habría llamado idealismo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card adversario" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
+          <div class="acc-card-title">Popper: el marxismo no puede equivocarse. Weber: la causalidad está invertida</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p><strong>Popper</strong> argumenta que el marxismo es una teoría infalsificable: cualquier cosa que ocurra puede ser interpretada como confirmación. Si la revolución llega, el marxismo tenía razón. Si no llega, la conciencia de clase no ha madurado, o la burguesía ha sido muy hábil. Una teoría que puede explicarlo todo no explica nada con precisión.</p>
+            <p><strong>Weber</strong> ataca por otro flanco: el capitalismo no nació de las condiciones materiales sino de la ética protestante. Es la superestructura —la religión— la que genera la infraestructura —el capitalismo—. Si Weber tiene razón en este caso histórico central, la causalidad marxista está al menos parcialmente invertida.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card talon" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-talon"><span class="tag-dot"></span>Qué supuesto puede fallar</div>
+          <div class="acc-card-title">La historia tiene dirección garantizada: eso es más metafísica que ciencia</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Marx asume que la historia avanza hacia la sociedad sin clases con la misma necesidad con que el agua baja hacia el mar. Eso es un supuesto metafísico enorme — exactamente el tipo de filosofía de la historia que Marx dice superar al darle la vuelta a Hegel.</p>
+            <p>Si la historia no tiene dirección garantizada, la revolución no es inevitable: es una apuesta política entre otras. Y si es una apuesta, el marxismo ya no es una ciencia de la sociedad sino un proyecto con una narrativa de fondo que hay que aceptar o rechazar como tal. Lo que se presenta como análisis objetivo tiene, en su núcleo, una fe en el desenlace.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ARENDT ── -->
+  <section class="author-section" id="arendt">
+    <div class="author-header">
+      <span class="author-number">vi.</span>
+      <h2 class="author-name">Arendt</h2>
+      <span class="author-dates">1906–1975</span>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="acc-card resonancia" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-resonancia"><span class="tag-dot"></span>Dónde vive hoy</div>
+          <div class="acc-card-title">¿Puede la democracia destruir la acción sin prohibirla?</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>El totalitarismo destruye la acción por represión directa: elimina el espacio público, aísla, atomiza. Pero hay una pregunta más incómoda: ¿puede una democracia producir el mismo efecto por otros medios?</p>
+            <p>No por prohibir sino por <strong>saturar</strong>: cuando hay tantas voces que ninguna cuenta, cuando la acción política se convierte en gesto simbólico sin consecuencias, cuando participar y no participar producen el mismo resultado. La categoría arendtiana de superfluidad apunta en esa dirección: lo más destructivo no es el enemigo declarado sino la condición en que la acción deja de tener sentido porque ya no produce nada irreversible.</p>
+            <p>El mal banal tiene también una vida cultural activa fuera del contexto nazi: <em>El lector</em>, <em>La zona de interés</em> — ambas exploran la misma pregunta: ¿cómo participa gente ordinaria en el horror sin odio, sin convicción, casi sin darse cuenta?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card adversario" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-adversario"><span class="tag-dot"></span>Quién no estaría de acuerdo</div>
+          <div class="acc-card-title">¿Quién cuenta como sujeto político? El espacio público no es neutral</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Arendt construye su concepto de acción política sobre el modelo griego: la <em>polis</em> como espacio donde los iguales aparecen y actúan juntos. El problema es que la <em>polis</em> griega excluía a las mujeres, los esclavos y los extranjeros.</p>
+            <p>Si el espacio público históricamente ha sido el espacio de algunos, y Arendt no tematiza esa exclusión con suficiente profundidad, su teoría describe bien lo que pasa dentro del espacio pero no dice nada sobre quién ha podido entrar y quién ha sido dejado fuera.</p>
+            <p>La crítica no anula su pensamiento pero lo obliga a completarse: una teoría de la acción política que no incluye una teoría del acceso al espacio político está incompleta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-card talon" onclick="toggleAcc(this)">
+        <div class="acc-card-header">
+          <div class="acc-type-tag tag-talon"><span class="tag-dot"></span>Qué supuesto puede fallar</div>
+          <div class="acc-card-title">El pensamiento como resistencia: ¿es suficiente?</div>
+          <span class="acc-toggle">+</span>
+        </div>
+        <div class="acc-body">
+          <div class="acc-body-text">
+            <p>Arendt concluye, especialmente en su obra tardía, que pensar —el diálogo interior, el juicio, la capacidad de ponerse en el lugar del otro— es la condición de posibilidad de la resistencia moral. Quien piensa no puede ejecutar el mal con la tranquilidad de Eichmann.</p>
+            <p>Es una conclusión que probablemente es verdadera en muchos casos. Pero tiene un límite: la historia registra casos de personas que pensaban con precisión y sofisticación y participaron en el horror con plena conciencia. El mal ilustrado existe.</p>
+            <p>Si pensar no garantiza la resistencia, la apuesta de Arendt es una apuesta —importante, orientadora, quizás necesaria— pero no una solución. Y esa diferencia importa.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>PAU Filosofía · Segunda Línea · Uso avanzado</span>
+    <em>Solo después de las bisagras.</em>
+  </footer>
+
+</main>
+
+<script>
+function toggleAcc(card) {
+  const isOpen = card.classList.contains('open');
+  // close all in same grid
+  const grid = card.closest('.cards-grid');
+  grid.querySelectorAll('.acc-card.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // update active nav
+  document.querySelectorAll('.nav-author').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Highlight nav on scroll
+const sections = document.querySelectorAll('.author-section');
+const navBtns = document.querySelectorAll('.nav-author');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navBtns.forEach(b => {
+        b.classList.toggle('active', b.getAttribute('onclick').includes(id));
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
